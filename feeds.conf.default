@@ -1,5 +1,5 @@
 src-git packages https://github.com/kevinCSDN/packages
-src-git luci https://github.com/kevniCSDN/luci
+src-git luci https://github.com/kevinCSDN/luci
 src-git routing https://github.com/coolsnowwolf/routing
 src-git telephony https://github.com/coolsnowwolf/telephony.git
 #src-git helloworld https://github.com/fw876/helloworld.git

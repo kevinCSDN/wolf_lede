@@ -432,6 +432,16 @@ define Device/radxa_rock-5a
 endef
 TARGET_DEVICES += radxa_rock-5a
 
+define Device/radxa_rock-5b
+  DEVICE_VENDOR := Radxa
+  DEVICE_MODEL := ROCK 5B
+  SOC := rk3588
+  UBOOT_DEVICE_NAME := rock5b-rk3588
+  IMAGE/sysupgrade.img.gz := boot-common | boot-script | pine64-img | gzip | append-metadata
+  DEVICE_PACKAGES := kmod-r8125-rss kmod-hwmon-pwmfan
+endef
+TARGET_DEVICES += radxa_rock-5b
+
 define Device/rongpin_king3399
   DEVICE_VENDOR := Rongpin
   DEVICE_MODEL := King3399
@@ -458,7 +468,8 @@ define Device/rumu3f_fine-3399
   SOC := rk3399
   UBOOT_DEVICE_NAME := fine3399-rk3399
   IMAGE/sysupgrade.img.gz := boot-common | boot-script | pine64-img | gzip | append-metadata
-  DEVICE_PACKAGES := kmod-gpio-button-hotplug kmod-r8168
+  DEVICE_PACKAGES := brcmfmac-firmware-43430b0-sdio brcmfmac-nvram-43430b0-sdio \
+	kmod-brcmfmac kmod-gpio-button-hotplug kmod-usb-net-rtl8152 wpad
 endef
 TARGET_DEVICES += rumu3f_fine-3399
 
@@ -565,13 +576,13 @@ define Device/widora_mangopi-m28
   SOC := rk3528
   UBOOT_DEVICE_NAME := generic-rk3528
   IMAGE/sysupgrade.img.gz := boot-common | boot-script rk3528 | pine64-img | gzip | append-metadata
-  DEVICE_PACKAGES := kmod-aic8800s kmod-r8168 wpad-openssl -urngd
+  DEVICE_PACKAGES := kmod-aic8800s wpad-openssl -urngd
 endef
 
 define Device/widora_mangopi-m28c
 $(call Device/widora_mangopi-m28)
   DEVICE_MODEL := MangoPi M28C
-  DEVICE_PACKAGES += kmod-gpio-button-hotplug kmod-usb-serial-option
+  DEVICE_PACKAGES += kmod-usb-serial-option
 endef
 TARGET_DEVICES += widora_mangopi-m28c
 
